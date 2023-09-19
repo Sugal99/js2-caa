@@ -1,0 +1,10 @@
+@import "_variables"; /* /src/scss/_variables.scss */
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+// Used a very long time trying to
+// customizie the bootstrap width with scss,
+// spent too much time trying to get to work, so i resorted to use normal css for that.
+
+.cardUserPhoto {
+  width: 12%;
+}
