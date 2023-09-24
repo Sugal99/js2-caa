@@ -25,7 +25,7 @@ function handleSubmit(event) {
   fetchToken(postsUrl2);
 }
 
-const postsUrl2 = `${API_BASE_URL}/api/v1/social/posts`;
+const postsUrl2 = `${API_BASE_URL2}/api/v1/social/posts`;
 
 const formID3 = document.getElementById("formID");
 formID3.addEventListener("submit", handleSubmit);
