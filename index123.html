@@ -20,8 +20,18 @@
           </div>
         </div>
       </div>
-      <form action="" id="formID" class="was-validated">
+      <form action="profile.html" class="was-validated">
         <div class="container col-lg-4">
+          <label for="inputEmail" class="form-label"></label>
+          <input
+            type="text"
+            class="form-control"
+            id="exampleEmail1"
+            placeholder="Email or username"
+            required
+            minlength="5"
+          />
+
           <div class="valid-feedback">Email/Username is Valid.</div>
           <div class="invalid-feedback text-muted">
             Username/Email must have a minimum length of 5 characters
@@ -29,33 +39,14 @@
         </div>
 
         <div class="container col-lg-4">
-          <label for="email" class="form-label"></label>
-          <input
-            type="email"
-            class="form-control"
-            id="email"
-            placeholder="Email or username"
-            minlength="5"
-            name="email"
-            required
-          />
-
-          <div class="valid-feedback">Email is Valid.</div>
-          <div class="invalid-feedback text-muted">
-            Username/Email must have a minimum length of 5 characters
-          </div>
-        </div>
-
-        <div class="container col-lg-4">
-          <label for="password" class="form-label"></label>
+          <label for="inputPassword" class="form-label"></label>
           <input
             type="password"
             class="form-control"
-            id="password"
+            id="exampleEmail2"
             placeholder="Password"
-            minlength="8"
-            name="password"
             required
+            minlength="8"
           />
           <div class="valid-feedback">Password is valid!</div>
           <div class="invalid-feedback text-muted">
@@ -69,9 +60,8 @@
           <button
             type="submit"
             class="w-75 rounded-5 btn btn-primary btn-lg mt-3"
-            value="Login"
           >
-            Login In
+            Sign in
           </button>
         </div>
       </form>
@@ -82,7 +72,5 @@
         <span class="text-muted">© Copyright 2023</span>
       </div>
     </footer>
-    <script src="/js/Login.js"></script>
-    <script src="/js/test1234.js"></script>
   </body>
 </html>

@@ -1,5 +1,3 @@
-import { displayPostByID } from "./id.js";
-
 const API_BASE_URL = "https://api.noroff.dev";
 
 async function fetchWithToken(url) {
@@ -79,9 +77,66 @@ function createPostsHTML(json) {
   }
 }
 
-async function main() {
-  const json = await fetchWithToken(API_BASE_URL + "/api/v1/social/posts");
-  createPostsHTML(json);
+async function filter() {
+  const container = document.querySelector(".container");
+  const dropdownMenu = document.querySelector(".dropdown-menu");
+
+  let isFiltering = false;
+  let json = await fetchWithToken(API_BASE_URL + "/api/v1/social/posts");
+
+  function createPostsHTML(posts) {
+    container.innerHTML = ""; // Moved this line outside of the loop
+    for (const post of posts) {
+      createPostHTML(post);
+    }
+  }
+
+  function toggleFilter() {
+    if (!isFiltering) {
+      isFiltering = true;
+      filterButton.innerText = "Go Back To New Posts";
+
+      // Reverse the posts only when filtering is active
+      createPostsHTML(
+        json
+          .filter(
+            (post) =>
+              new Date(post.created).getTime() >=
+              new Date("2023-09-22").getTime()
+          )
+          .reverse()
+      );
+    }
+  }
+
+  // Add event listeners to the dropdown items
+  const dropdownItems = dropdownMenu.querySelectorAll(".dropdown-item");
+  for (const item of dropdownItems) {
+    item.addEventListener("click", () => {
+      const filterValue = item.getAttribute("data-filter");
+
+      if (filterValue === "all") {
+        // Show all posts without clearing the container
+        createPostsHTML(json);
+      } else if (filterValue === "filter") {
+        // Toggle filtering when "Filter" is selected
+        toggleFilter();
+      } else {
+        // Do nothing when other categories are selected
+      }
+    });
+  }
+
+  const filterButton = document.getElementById("button");
+  filterButton.addEventListener("click", () => {
+    if (isFiltering) {
+      isFiltering = false;
+      filterButton.innerText = "Filter";
+
+      // Create posts HTML without filtering
+      createPostsHTML(json);
+    }
+  });
 }
-main();
-displayPostByID();
+
+filter();

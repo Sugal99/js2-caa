@@ -34,17 +34,40 @@
           </ul>
 
           <form class="d-flex">
-            <input class="form-control" type="text" placeholder="Search" />
+            <input class="form-control" id="test" type="text" placeholder="Search" />
             <button class="btn btn-primary ms-2" type="button">Search</button>
           </form>
-        </div>
+
+          <div class="dropdown d-flex justify-content-start">
+            <button
+              type="button"
+              class="btn btn-primary dropdown-toggle ms-1"
+              id="button"
+              data-bs-toggle="dropdown"
+              id="dropdown-button"
+            >
+              Sort
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdown-button">
+              <li>
+                <a class="dropdown-item"   href="#" data-filter="filter">Filter By Oldest</a>
+
+              </li>
+              <!-- Add more categories as needed -->
+            </ul>
+          </div>
+          
       </div>
     </nav>
   </header>
 <main>
-  <div class="container mt-3">
-    
+  <div class="filtered-container">
+
   </div>
+  <div class="container mt-2 text-center">
+  </div>
+  
+ 
 </main>
 
    <!---------
@@ -254,6 +277,12 @@
         <span class="text-muted">© Copyright 2023</span>
       </div>
     </footer>
-    <script src="/js/feed.js"></script>
+    <script type="module" src="/js/feed.js"></script>
+    <script type="module" src="/js/filter.js"></script>
+    <script type="module" src="/js/search.js"></script>
+    <script type="module" src="/js/createPost.js"></script>
+
+
+    
   </body>
 </html>

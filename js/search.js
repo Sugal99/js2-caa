@@ -1,5 +1,3 @@
-import { displayPostByID } from "./id.js";
-
 const API_BASE_URL = "https://api.noroff.dev";
 
 async function fetchWithToken(url) {
@@ -79,9 +77,50 @@ function createPostsHTML(json) {
   }
 }
 
-async function main() {
-  const json = await fetchWithToken(API_BASE_URL + "/api/v1/social/posts");
-  createPostsHTML(json);
+async function filter() {
+  const container = document.querySelector(".container");
+  const dropdownMenu = document.querySelector(".dropdown-menu");
+
+  let isFiltering = false;
+  let json = await fetchWithToken(API_BASE_URL + "/api/v1/social/posts");
+
+  function createPostsHTML(posts) {
+    container.innerHTML = ""; // Moved this line outside of the loop
+    for (const post of posts) {
+      createPostHTML(post);
+    }
+  }
 }
-main();
-displayPostByID();
+async function search() {
+  const container = document.querySelector(".container");
+  const searchInput = document.getElementById("test");
+  const params = new URLSearchParams(window.location.search);
+  const postId = params.get("id");
+
+  let json = await fetchWithToken(API_BASE_URL + "/api/v1/social/posts");
+
+  function updatePosts() {
+    const searchQuery = searchInput.value.toLowerCase().trim(); // Trim whitespace
+    container.innerHTML = "";
+
+    json
+      .filter((post) => post.title.toLowerCase().includes(searchQuery))
+      .forEach((post) => createPostHTML(post));
+  }
+
+  searchInput.addEventListener("input", updatePosts);
+
+  if (postId) {
+    // If there's an ID in the URL, fetch and display only that post
+    const post = json.find((post) => post.id === postId);
+    if (post) {
+      container.innerHTML = "";
+      createPostHTML(post);
+    }
+  } else {
+    // If no ID in the URL, initially create posts HTML without filtering
+    json.forEach((post) => createPostHTML(post));
+  }
+}
+
+search();
