@@ -90,53 +90,37 @@ async function filter() {
       createPostHTML(post);
     }
   }
+}
+async function search() {
+  const container = document.querySelector(".container");
+  const searchInput = document.getElementById("test");
+  const params = new URLSearchParams(window.location.search);
+  const postId = params.get("id");
 
-  function toggleFilter() {
-    if (!isFiltering) {
-      isFiltering = true;
-      filterButton.innerText = "Go Back To New Posts";
+  let json = await fetchWithToken(API_BASE_URL + "/api/v1/social/posts");
 
-      // Reverse the posts only when filtering is active
-      createPostsHTML(
-        json
-          .filter(
-            (post) =>
-              new Date(post.created).getTime() >=
-              new Date("2023-09-22").getTime()
-          )
-          .reverse()
-      );
-    }
+  function updatePosts() {
+    const searchQuery = searchInput.value.toLowerCase().trim(); // Trim whitespace
+    container.innerHTML = "";
+
+    json
+      .filter((post) => post.title.toLowerCase().includes(searchQuery))
+      .forEach((post) => createPostHTML(post));
   }
 
-  // Add event listeners to the dropdown items
-  const dropdownItems = dropdownMenu.querySelectorAll(".dropdown-item");
-  for (const item of dropdownItems) {
-    item.addEventListener("click", () => {
-      const filterValue = item.getAttribute("data-filter");
+  searchInput.addEventListener("input", updatePosts);
 
-      if (filterValue === "all") {
-        // Show all posts without clearing the container
-        createPostsHTML(json);
-      } else if (filterValue === "filter") {
-        // Toggle filtering when "Filter" is selected
-        toggleFilter();
-      } else {
-        // Do nothing when other categories are selected
-      }
-    });
-  }
-
-  const filterButton = document.getElementById("button");
-  filterButton.addEventListener("click", () => {
-    if (isFiltering) {
-      isFiltering = false;
-      filterButton.innerText = "Filter";
-
-      // Create posts HTML without filtering
-      createPostsHTML(json);
+  if (postId) {
+    // If there's an ID in the URL, fetch and display only that post
+    const post = json.find((post) => post.id === postId);
+    if (post) {
+      container.innerHTML = "";
+      createPostHTML(post);
     }
-  });
+  } else {
+    // If no ID in the URL, initially create posts HTML without filtering
+    json.forEach((post) => createPostHTML(post));
+  }
 }
 
-filter();
+export { search };

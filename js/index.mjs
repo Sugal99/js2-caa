@@ -1,3 +1,10 @@
+import { displayPostByID } from "./id.mjs";
+import { createNewPost } from "./createPost.mjs";
+import { deletePost } from "./deletePost.mjs";
+import { editPost } from "./edit.mjs";
+import { filter } from "./filter.mjs";
+import { search } from "./search.mjs";
+
 const API_BASE_URL = "https://api.noroff.dev";
 
 async function fetchWithToken(url) {
@@ -76,45 +83,15 @@ function createPostsHTML(json) {
     createPostHTML(post);
   }
 }
-export async function displayPostByID() {
-  const params = new URLSearchParams(window.location.search);
-  const postId = params.get("id");
-  let isFiltering = false;
 
-  if (postId) {
-    // Fetch the post by ID
-    const json = await fetchWithToken(
-      API_BASE_URL + `/api/v1/social/posts/${postId}`
-    );
-
-    if (json) {
-      // Clear the container only if the filter is not active
-      if (!isFiltering) {
-        const container = document.querySelector(".container");
-        container.innerHTML = "";
-      }
-
-      // Create and append the post HTML
-      createPostHTML(json);
-    } else {
-      console.log(`Post with ID ${postId} not found.`);
-    }
-  } else {
-    // No ID provided, fetch and display all posts
-    const json = await fetchWithToken(API_BASE_URL + "/api/v1/social/posts");
-
-    if (json) {
-      // Clear the container only if the filter is not active
-      if (!isFiltering) {
-        const container = document.querySelector(".container");
-        container.innerHTML = "";
-      }
-
-      json.forEach((post) => createPostHTML(post));
-    } else {
-      console.log("Failed to fetch posts.");
-    }
-  }
+async function main() {
+  const json = await fetchWithToken(API_BASE_URL + "/api/v1/social/posts");
+  createPostsHTML(json);
 }
-
+main();
 displayPostByID();
+createNewPost();
+deletePost();
+editPost();
+filter();
+search();
