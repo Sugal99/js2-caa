@@ -55,19 +55,143 @@
               </li>
               <!-- Add more categories as needed -->
             </ul>
+            <button id="showEditFormButton" class="btn btn-primary ms-1" >Edit Post</button>
+            <button id="showDeleteFormButton" class="btn btn-primary ms-1" >Delete Post</button>
+
           </div>
           
       </div>
     </nav>
   </header>
 <main>
-  <div class="filtered-container">
+ 
+<form id="deletePost" class="deletePost mt-3" style="display: none;">
+  <div class="container123 text-center d-flex justify-content-center">
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 border border-1">
+        <div class="mb-3">
+          <label for="deletePost" class="form-label">deletePost</label>
+  <input type="text" class="form-control" id="postId" name="postId" placeholder="Enter
+   Post ID"/>
+   <button type="submit" id="deletePostButton" class="w-75 rounded-5 btn btn-primary btn-lg  mt-3">
+    delete Post
+  </button>
+        
+   
+        
+          
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</form>
+
+<form id="editPostForm" class="postForm mt-3" style="display: none;">
+  <div class="container123 text-center d-flex justify-content-center">
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 border border-1">
+        <div class="mb-3">
+          <label for="editTitle" class="form-label">Edit Title</label>
+          <input type="text" class="form-control" id="editTitle" name="title" placeholder="Edit Title Here"/>
+          
+          <label for="editBody" class="form-label">Edit Body</label>
+          <textarea class="form-control" id="editBody" name="body" placeholder="Edit Body Here"></textarea>
+          
+  
+          <label for="media" class="form-label">Media URL</label>
+          <input
+            type="text"
+            class="form-control"
+            id="media"
+            name="media"
+            placeholder="Url of the image"
+          />
+
+          <label for="editPostId" class="form-label">Post ID</label>
+          <input type="text" class="form-control" id="editPostId" name="postId" placeholder="Enter Post ID"/>
+        
+         
+        </div>
+
+        
+          <button type="submit" class="w-75 rounded-5 btn btn-primary btn-lg mb-3">
+            Update Post
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+
+
+
+
+  <form id="postForm" class="postForm mt-3">
+    <div class="container123 text-center d-flex justify-content-center">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 border border-1">
+          <div class="mb-3">
+            <label for="title" class="form-label">Title of post</label>
+            <input
+              type="text"
+              class="form-control"
+              id="title"
+              name="title"
+              placeholder="Hello.."
+            />
+            
+            <label for="body" class="form-label">Body Text</label>
+            <input
+              type="text"
+              class="form-control"
+              id="body"
+              name="body"
+              placeholder="Today I went on a..."
+            />
+
+
+           
+          <label for="media" class="form-label">Media URL</label>
+          <input
+            type="text"
+            class="form-control"
+            id="media"
+            name="media"
+            placeholder="Url of the image"
+          />
+          <button
+          type="submit"
+          class="w-75 rounded-5 btn btn-primary btn-lg mt-3"
+        >
+          Upload
+        </button>
+          
+     
+          
+            
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    </div>
+  </form>
+<hr>
+
+
+
+
+  <div class="filtered-container ">
 
   </div>
   <div class="container mt-2 text-center">
   </div>
   
  
+  
 </main>
 
    <!---------
@@ -281,6 +405,11 @@
     <script type="module" src="/js/filter.js"></script>
     <script type="module" src="/js/search.js"></script>
     <script type="module" src="/js/createPost.js"></script>
+    <script type="module" src="/js/edit.js"></script>
+    <script type="module" src="/js/deletePost.js"></script>
+
+
+
 
 
     
