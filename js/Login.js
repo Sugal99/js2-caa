@@ -24,7 +24,7 @@ async function loginUser(url, data) {
 
 // Function to handle form submission
 function handleSubmit(event) {
-  event.preventDefault(); // Prevent the form from actually submitting
+  //event.preventDefault(); // Prevent the form from actually submitting
 
   // Get values from form fields
   const password = document.getElementById("password").value;
