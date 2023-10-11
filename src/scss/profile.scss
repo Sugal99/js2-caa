@@ -5,10 +5,18 @@
 // customizie the bootstrap width with scss,
 // spent too much time trying to get to work, so i resorted to use normal css for that.
 
-.profilePhoto {
-  width: 41%;
-}
-
 .cardUserPhoto {
   width: 12%;
+}
+
+img {
+  width: 35vw;
+  margin-top: 1%;
+}
+.card-text {
+  margin-top: 1%;
+}
+
+h6 {
+  margin-left: 58vw;
 }

@@ -12,7 +12,7 @@ async function editPost() {
     event.preventDefault();
 
     // Destructure the formData object to get the postId
-    const { postId, title, body } = Object.fromEntries(
+    const { postId, title, body, media } = Object.fromEntries(
       new FormData(event.target)
     );
 
@@ -28,7 +28,7 @@ async function editPost() {
         `${API_BASE_URL}/api/v1/social/posts/${postId}`,
         {
           method: "PUT",
-          body: JSON.stringify({ title, body }),
+          body: JSON.stringify({ title, body, media }),
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,

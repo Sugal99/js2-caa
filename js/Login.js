@@ -14,8 +14,14 @@ async function loginUser(url, data) {
     console.log(response);
     const json = await response.json();
     console.log(json);
-    const accessToken = json.accessToken;
-    localStorage.setItem("accessToken", accessToken);
+
+    if (json.accessToken) {
+      localStorage.setItem("accessToken", json.accessToken);
+      window.location.href = "/feedcopy.html"; // Redirect after successful login
+    } else {
+      console.log("Login failed. Handle the error as needed.");
+    }
+
     return json;
   } catch (error) {
     console.log(error);
@@ -24,7 +30,7 @@ async function loginUser(url, data) {
 
 // Function to handle form submission
 function handleSubmit(event) {
-  //event.preventDefault(); // Prevent the form from actually submitting
+  event.preventDefault(); // Prevent the form from actually submitting
 
   // Get values from form fields
   const password = document.getElementById("password").value;
