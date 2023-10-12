@@ -10709,5 +10709,16 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.registerLink {
+  color: #3b4650;
+}
+
+.loginLink {
+  color: #3b4650;
+}
+
+a {
+  text-decoration: none;
+}
 
 /*# sourceMappingURL=styles.css.map */
