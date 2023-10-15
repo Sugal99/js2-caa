@@ -1,7 +1,5 @@
 import { displayPostByID } from "./id.mjs";
 import { createNewPost } from "./createPost.mjs";
-import { deletePost } from "./deletePost.mjs";
-import { editPost } from "./edit.mjs";
 import { filter } from "./filter.mjs";
 import { search } from "./search.mjs";
 
@@ -91,7 +89,5 @@ async function main() {
 main();
 displayPostByID();
 createNewPost();
-deletePost();
-editPost();
 filter();
 search();

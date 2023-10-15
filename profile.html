@@ -36,12 +36,74 @@
             <input class="form-control" type="text" placeholder="Search" />
             <button class="btn btn-primary ms-2" type="button">Search</button>
           </form>
+          <button id="showEditFormButton" class="btn btn-primary ms-1" >Edit Post</button>
+          <button id="showDeleteFormButton" class="btn btn-primary ms-1" >Delete Post</button>
         </div>
       </div>
     </nav>
   </header>
   <body>
     <main>
+
+      <form id="deletePost" class="deletePost mt-3" style="display: none;">
+        <div class="container123 text-center d-flex justify-content-center">
+          <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 border border-1">
+              <div class="mb-3">
+                <label for="deletePost" class="form-label">deletePost</label>
+        <input type="text" class="form-control" id="postId" name="postId" placeholder="Enter Post ID"/>
+         <button type="submit" id="deletePostButton" class="w-75 rounded-5 btn btn-primary btn-lg  mt-3">
+          delete Post
+        </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+
+
+
+      <form id="editPostForm" class="postForm mt-3" style="display: none;">
+        <div class="container123 text-center d-flex justify-content-center">
+          <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 border border-1">
+              <div class="mb-3">
+                <label for="editTitle" class="form-label">Edit Title</label>
+                <input type="text" class="form-control" id="editTitle" name="title" placeholder="Edit Title Here"/>
+                
+                <label for="editBody" class="form-label">Edit Body</label>
+                <textarea class="form-control" id="editBody" name="body" placeholder="Edit Body Here"></textarea>
+                
+        
+                <label for="media" class="form-label">Media URL</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="media"
+                  name="media"
+                  placeholder="Url of the image"
+                />
+      
+                <label for="editPostId" class="form-label">Post ID</label>
+                <input type="text" class="form-control" id="editPostId" name="postId" placeholder="Enter Post ID"/>
+              
+               
+              </div>
+      
+              
+                <button type="submit" class="w-75 rounded-5 btn btn-primary btn-lg mb-3">
+                  Update Post
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      
+      
+
+
+
       <div class="profileContainer text-center">
         <div class="container-fluid d-flex justify-content-center">
           <div class="row">
@@ -167,12 +229,11 @@
   </div>
   
     </main>
-    <script type="module" src="/js/profilePosts.mjs"></script>
-
   <footer class="footer mt-auto py-3 text-center">
     <div class="container col-md-3">
       <span class="text-muted">© Copyright 2023</span>
     </div>
   </footer>
+  <script type="module" src="/js/profilePosts.mjs"></script>
 </html>
 </body>

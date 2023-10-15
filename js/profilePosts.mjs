@@ -1,3 +1,6 @@
+import { editPost } from "./edit.mjs";
+import { deletePost } from "./deletePost.mjs";
+
 const API_BASE_URL = "https://api.noroff.dev";
 
 async function fetchWithToken(url) {
@@ -78,9 +81,29 @@ function createPostsHTML(json) {
 }
 
 async function main() {
-  const json = await fetchWithToken(
-    API_BASE_URL + "/api/v1/social/profiles/TestSugalAden/posts"
-  );
-  createPostsHTML(json);
+  // Retrieve the user's identity (username or user ID) from local storage
+  const user = localStorage.getItem("user");
+
+  if (!user) {
+    console.error("User identity not found in local storage.");
+    return;
+  }
+
+  // Fetch the posts for the user
+  const url = `${API_BASE_URL}/api/v1/social/profiles/${user}/posts`;
+  const json = await fetchWithToken(url);
+
+  if (json) {
+    createPostsHTML(json);
+  } else {
+    console.error("Error fetching user posts.");
+  }
+
+  // Set the user's name on the profile
+  const profileName = document.querySelector("h2");
+  profileName.innerText = user;
 }
+
 main();
+editPost();
+deletePost();

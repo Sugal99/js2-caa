@@ -17,6 +17,7 @@ async function loginUser(url, data) {
 
     if (json.accessToken) {
       localStorage.setItem("accessToken", json.accessToken);
+      localStorage.setItem("user", json.name); // Store the user's name
       window.location.href = "/feedcopy.html"; // Redirect after successful login
     } else {
       console.log("Login failed. Handle the error as needed.");
