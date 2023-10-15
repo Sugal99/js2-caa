@@ -77,20 +77,20 @@ function createPostsHTML(json) {
   }
 }
 
-async function filter() {
-  const container = document.querySelector(".container");
-  const dropdownMenu = document.querySelector(".dropdown-menu");
+/**
+ * @description Handle searching and displaying posts based on user input and URL parameters.
+ * @function search
+ * @example
+ * // Get references to HTML elements
+ * const container = document.querySelector(".container");
+ * const searchInput = document.getElementById("test");
+ * const params = new URLSearchParams(window.location.search);
+ * const postId = params.get("id");
+ *
+ * // Execute the search function
+ * search();
+ */
 
-  let isFiltering = false;
-  let json = await fetchWithToken(API_BASE_URL + "/api/v1/social/posts");
-
-  function createPostsHTML(posts) {
-    container.innerHTML = ""; // Moved this line outside of the loop
-    for (const post of posts) {
-      createPostHTML(post);
-    }
-  }
-}
 async function search() {
   const container = document.querySelector(".container");
   const searchInput = document.getElementById("test");

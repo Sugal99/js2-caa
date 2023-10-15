@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/dist/css/feed.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-sm navbar-dark bg-success">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Socials</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapsibleNavbar"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Sign Out</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="profile.html">Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Feed</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input
+                class="form-control"
+                id="test"
+                type="text"
+                placeholder="Search"
+              />
+            </form>
+            <div class="dropdown d-flex justify-content-start">
+              <button
+                type="button"
+                class="btn btn-primary dropdown-toggle ms-1"
+                id="button"
+                data-bs-toggle="dropdown"
+                id="dropdown-button"
+              >
+                Filter
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdown-button">
+                <li>
+                  <a class="dropdown-item" href="#" data-filter="filter"
+                    >Filter By Oldest</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <form id="postForm" class="postForm mt-3">
+        <div class="container123 text-center d-flex justify-content-center">
+          <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 border border-1">
+              <div class="mb-3">
+                <label for="title" class="form-label">Title of post</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="title"
+                  name="title"
+                  placeholder="Hello.."
+                />
+                <label for="body" class="form-label">Body Text</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="body"
+                  name="body"
+                  placeholder="Today I went on a..."
+                />
+                <label for="media" class="form-label">Media URL</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="media"
+                  name="media"
+                  placeholder="Url of the image"
+                />
+                <button
+                  type="submit"
+                  class="w-75 rounded-5 btn btn-primary btn-lg mt-3"
+                >
+                  Upload
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <hr />
+      <div class="filtered-container"></div>
+      <div class="container mt-2 text-center"></div>
+    </main>
+    <footer class="footer mt-auto py-3 text-center">
+      <div class="container col-md-3">
+        <span class="text-muted">© Copyright 2023</span>
+      </div>
+    </footer>
+    <script type="module" src="/js/index.mjs"></script>
+    <script type="module" src="/js/filter.mjs"></script>
+    <script type="module" src="/js/search.mjs"></script>
+    <script type="module" src="/js/createPost.mjs"></script>
+    <script type="module" src="/js/edit.mjs"></script>
+    <script type="module" src="/js/deletePost.mjs"></script>
+  </body>
+</html>

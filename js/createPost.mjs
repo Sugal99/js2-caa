@@ -1,3 +1,28 @@
+/**
+ * Creates a new post on the website.
+ *
+ *
+ * @function createNewPost
+ * @throws {Error} If an error occurs during the post creation process.
+ *
+ * @example
+ * // In this example, it assumes you have an HTML form with an ID "postForm" and input fields for the title, body, and media. It also shows how to attach the function to a "Submit" button so that when the button is clicked, it calls createNewPost.
+ * const postForm = document.getElementById("postForm");
+ * postForm.addEventListener("submit", (event) => {
+ *   event.preventDefault();
+ *   createNewPost();
+ * });
+ * 
+ * {
+  "id": 0,
+  "title": "string",
+  "body": "string",
+  "tags": ["string"],
+  "media": "https://url.com/image.jpg",
+  "created": "2022-09-04T16:21:02.042Z",
+  }
+
+ */
 async function createNewPost() {
   const API_BASE_URL = "https://api.noroff.dev";
 

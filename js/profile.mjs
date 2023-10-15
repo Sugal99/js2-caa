@@ -80,7 +80,18 @@ function createPostsHTML(json) {
   }
 }
 
-async function main() {
+/**
+ * @description  Handle user profile by fetching and displaying posts for the logged-in user.
+ *
+ *
+ * @function profileHandler
+ *
+ * @example
+ * // Handle user profile by calling the function
+ * profileHandler();
+ */
+
+async function profileHandler() {
   // Retrieve the user's identity (username or user ID) from local storage
   const user = localStorage.getItem("user");
 
@@ -104,6 +115,6 @@ async function main() {
   profileName.innerText = user;
 }
 
-main();
+profileHandler();
 editPost();
 deletePost();

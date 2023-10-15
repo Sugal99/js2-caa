@@ -1,5 +1,21 @@
 const API_BASE_URL = "https://api.noroff.dev";
 
+/**
+ * @description Log in a user using provided data and store access token and user name in local storage.
+ *
+ *
+ * @function loginUser
+ * @param {string} url - The URL for the login API endpoint.
+ * @param {Object} data - User login data including email and password.
+ *  @throws {Error} If an error occurs during the post creation process.
+ * @example
+ * // Log in a user and handle the result
+ * const loginData = {
+ *   email: "user@example.com",
+ *   password: "secretPassword",
+ * };
+ *
+ */
 async function loginUser(url, data) {
   try {
     const postData = {
@@ -18,7 +34,7 @@ async function loginUser(url, data) {
     if (json.accessToken) {
       localStorage.setItem("accessToken", json.accessToken);
       localStorage.setItem("user", json.name); // Store the user's name
-      window.location.href = "/feedcopy.html"; // Redirect after successful login
+      window.location.href = "/feed.html"; // Redirect after successful login
     } else {
       console.log("Login failed. Handle the error as needed.");
     }
@@ -28,6 +44,18 @@ async function loginUser(url, data) {
     console.log(error);
   }
 }
+
+/**
+ * @description Handle the form submission to log in a user.
+ *
+ * @function handleSubmit
+ * @param {Event} event - The form submission event.
+ *
+ * @example
+ * // Example of how to attach this handler to a login form
+ * const loginForm = document.getElementById("loginForm");
+ * loginForm.addEventListener("submit", handleSubmit);
+ */
 
 // Function to handle form submission
 function handleSubmit(event) {

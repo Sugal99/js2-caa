@@ -5,6 +5,23 @@ import { search } from "./search.mjs";
 
 const API_BASE_URL = "https://api.noroff.dev";
 
+/**
+ * @description Fetch data from a given URL with an authorization token.
+ *
+ *
+ * @function fetchWithToken
+ * @param {string} url - The URL to fetch data from.
+ * @throws {Error} If an error occurs during the post creation process.
+ * @example
+ * // Fetch data from a specific URL
+ * const data = await fetchWithToken("https://example.com/api/data");
+ * if (data) {
+ *   console.log("Data fetched successfully:", data);
+ * } else {
+ *   console.error("Failed to fetch data.");
+ * }
+ */
+
 async function fetchWithToken(url) {
   try {
     const token = localStorage.getItem("accessToken");
@@ -24,6 +41,24 @@ async function fetchWithToken(url) {
     console.log(error);
   }
 }
+
+/**
+ * @description Create and append an HTML card element to display a post's details.
+ *
+ * @function createPostHTML
+ * @param {Object} post - The post object containing title, media, body, created, and id.
+ *
+ * @example
+ * // Create and display a post card
+ * const samplePost = {
+ *   title: "Sample Title",
+ *   media: "sample-image.jpg",
+ *   body: "This is the post body text.",
+ *   created: "2023-10-03",
+ *   id: 123,
+ * };
+ * createPostHTML(samplePost);
+ */
 
 function createPostHTML(post) {
   const container = document.querySelector(".container");
@@ -81,6 +116,16 @@ function createPostsHTML(json) {
     createPostHTML(post);
   }
 }
+/**
+ * @description The main function to fetch and display a list of posts.
+ *
+ *
+ * @function main
+ *
+ * @example
+ * // Fetch and display posts on the main page
+ * main();
+ */
 
 async function main() {
   const json = await fetchWithToken(API_BASE_URL + "/api/v1/social/posts");

@@ -76,6 +76,21 @@ function createPostsHTML(json) {
     createPostHTML(post);
   }
 }
+
+/**
+ * @description Display posts based on a specific post ID or all posts if no ID is provided.
+ *
+ *
+ * @function displayPostByID
+ * @param {string} [id] - The ID of the post to display. If not provided, all posts are displayed.
+ *
+ * @example
+ * // Display a specific post by ID
+ * displayPostByID("123");
+ *
+ *
+ */
+
 export async function displayPostByID() {
   const params = new URLSearchParams(window.location.search);
   const postId = params.get("id");

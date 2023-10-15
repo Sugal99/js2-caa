@@ -77,6 +77,18 @@ function createPostsHTML(json) {
   }
 }
 
+/**
+ * Filter and display posts based on a specified date.
+ *
+ * @function filter
+ * @description
+ * This function filters and displays posts based on a specified date using a dropdown menu.
+ *
+ *
+ *
+ *
+ */
+
 async function filter() {
   const container = document.querySelector(".container");
   const dropdownMenu = document.querySelector(".dropdown-menu");

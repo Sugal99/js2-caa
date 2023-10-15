@@ -1,3 +1,29 @@
+/**
+ * Edits an existing post on the website.
+ * @function editPost
+ * @throws {Error} If there is an issue with updating the post, it logs an error message.
+ *
+ * @description This function allows users to edit a post by providing the post ID, title, body, and media. It displays an edit form when a button is clicked, and upon submission, it sends a PUT request to the API to update the post.
+
+ * @example
+ * // Example usage:
+ * // Assume you have an HTML button with an ID 'showEditFormButton' and a form with an ID 'editPostForm'.
+ * // You can call editPost to set up the form and handle post editing like this:
+ * const showEditFormButton = document.getElementById("showEditFormButton");
+ * editPost();
+{
+  "id": 0,
+  "title": "string",
+  "body": "string",
+  "tags": ["string"],
+  "media": "https://url.com/image.jpg",
+  "created": "2022-09-04T16:21:02.042Z",
+  }
+
+
+ * 
+ */
+
 async function editPost() {
   const API_BASE_URL = "https://api.noroff.dev";
   const showEditFormButton = document.getElementById("showEditFormButton");

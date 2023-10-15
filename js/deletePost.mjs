@@ -1,3 +1,29 @@
+/**
+ * Deletes a post on the website.
+ * @function deletePost
+ * @throws {Error} If there is an issue with deleting the post, it logs an error message.
+
+ *
+ * @description This function allows users to delete a post by providing the post ID. It displays a form when a button is clicked, and upon submission, it sends a DELETE request to the API to delete the post.
+
+ * @example
+ * // Example usage:
+ * // Assume you have an HTML button with an ID 'showDeleteFormButton' and a form with an ID 'deletePost'.
+ * // You can call deletePost to set up the form and handle post deletion like this:
+ * const showDeleteFormButton = document.getElementById("showDeleteFormButton");
+ * deletePost();
+ * 
+const response = await fetch(
+        `${API_BASE_URL}/api/v1/social/posts/${postId}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+ */
+
 async function deletePost() {
   const API_BASE_URL = "https://api.noroff.dev";
   const showDeleteFormButton = document.getElementById("showDeleteFormButton");
