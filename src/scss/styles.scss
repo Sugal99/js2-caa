@@ -1,2 +1,14 @@
 @import "_variables"; /* /src/scss/_variables.scss */
 @import "../../node_modules/bootstrap/scss/bootstrap";
+
+.registerLink {
+  color: #3b4650;
+}
+
+.loginLink {
+  color: #3b4650;
+}
+
+a {
+  text-decoration: none;
+}

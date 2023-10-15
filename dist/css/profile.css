@@ -10709,12 +10709,21 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-.profilePhoto {
-  width: 41%;
-}
-
 .cardUserPhoto {
   width: 12%;
+}
+
+img {
+  width: 26vw;
+  margin-top: 1%;
+}
+
+.card-text {
+  margin-top: 1%;
+}
+
+h6, .h6 {
+  margin-left: 58vw;
 }
 
 /*# sourceMappingURL=profile.css.map */
