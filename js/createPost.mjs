@@ -1,5 +1,5 @@
 /**
- * Creates a new post on the website.
+ * @description Creates a new post on the website.
  *
  *
  * @function createNewPost

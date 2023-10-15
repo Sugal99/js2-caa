@@ -46,6 +46,18 @@ async function registerUser(url, data) {
   }
 }
 
+/**
+ * @description Handle the form submission to log in a user.
+ *
+ * @function handleSubmit
+ * @param {Event} event - The form submission event.
+ *
+ * @example
+ * // Example of how to attach this handler to a login form
+ * const loginForm = document.getElementById("loginForm");
+ * loginForm.addEventListener("submit", handleSubmit);
+ */
+
 // Function to handle form submission
 function handleSubmit(event) {
   event.preventDefault(); // Prevent the form from actually submitting

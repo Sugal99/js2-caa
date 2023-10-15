@@ -1,5 +1,5 @@
 /**
- * Edits an existing post on the website.
+ * 
  * @function editPost
  * @throws {Error} If there is an issue with updating the post, it logs an error message.
  *
